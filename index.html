@@ -84,13 +84,6 @@
                     <img src="copo_icon.svg" class="hpx_50 filter_black">
 
 
-    
-        <img src="ada4.png" class="ada ada4 no_select">
-        <div class="trigger-ada trigger no_select" style=" height: 5800px;"></div>
-        <img src="ada2.png" class="ada ada2 no_select">
-        <div class="trigger-ada2 trigger no_select" style=" height: 6500px;"></div>
-        <img src="ada1.png" class="ada ada3 no_select">
-        <div class="trigger-ada3 trigger no_select" style="top: 1000; height: 6500px;"></div>
 
         
                     <h3 class="font_times">En tus quince primaveras, se despliegan sueños como mariposas al vuelo, un mundo de posibilidades te espera y en tu corazón se tejen hilos de anhelo.</h3><br>
@@ -501,8 +494,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/countdown/2.6.0/countdown.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
 
 
 <script>
@@ -567,143 +559,6 @@ new WOW().init();
 
 
 
-
-
-
-
-
-
-
-
-
-gsap.registerPlugin(ScrollTrigger);
-
-
-
-
-// ANIMACIÓN PARA .ada4 (será más rápida - 500px)
-gsap.set(".ada4", { opacity: 0 });
-ScrollTrigger.create({
-  trigger: ".trigger-ada",
-  start: "top 80%",
-  end: "bottom 20%",
-  onEnter: () => gsap.to(".ada4", { opacity: 1, duration: 0.3 }),
-  onLeave: () => gsap.to(".ada4", { opacity: 0, duration: 0.3 }),
-  onEnterBack: () => gsap.to(".ada4", { opacity: 1, duration: 0.3 }),
-  onLeaveBack: () => gsap.to(".ada4", { opacity: 0, duration: 0.3 })
-});
-gsap.to(".ada4", {
-  y: -150,
-  scale: 1.2,
-  scrollTrigger: {
-    trigger: ".trigger-ada",
-    start: "top 80%", 
-    end: "bottom 20%", // Usa la altura real del trigger (500px)
-    scrub: true,
-    onUpdate: self => {
-      const zigzag = Math.sin(self.progress * 8) * 40;
-      gsap.set(".ada4", { x: zigzag });
-    }
-  }
-});
-
-
-
-
-// ANIMACIÓN PARA .ada2 (será más lenta - 1500px)
-gsap.set(".ada2", { opacity: 0 });
-ScrollTrigger.create({
-  trigger: ".trigger-ada2",
-  start: "top 80%",
-  end: "bottom 20%",
-  onEnter: () => gsap.to(".ada2", { opacity: 1, duration: 0.3 }),
-  onLeave: () => gsap.to(".ada2", { opacity: 0, duration: 0.3 }),
-  onEnterBack: () => gsap.to(".ada2", { opacity: 1, duration: 0.3 }),
-  onLeaveBack: () => gsap.to(".ada2", { opacity: 0, duration: 0.3 })
-});
-gsap.to(".ada2", {
-  y: -150,
-  scale: 1.2,
-  scrollTrigger: {
-    trigger: ".trigger-ada2",
-    start: "top 80%", 
-    end: "bottom 20%", // Usa la altura real del trigger (1500px)
-    scrub: true,
-    onUpdate: self => {
-      const zigzag = Math.sin(self.progress * 8) * 40;
-      gsap.set(".ada2", { x: zigzag });
-    }
-  }
-});
-
-
-
-
-// ANIMACIÓN PARA .ada3 (será más lenta - 1500px)
-gsap.set(".ada3", { opacity: 0 });
-ScrollTrigger.create({
-  trigger: ".trigger-ada3",
-  start: "top 20%",
-  end: "bottom 40%",
-  onEnter: () => gsap.to(".ada3", { opacity: 1, duration: 0.3 }),
-  onLeave: () => gsap.to(".ada3", { opacity: 0, duration: 0.3 }),
-  onEnterBack: () => gsap.to(".ada3", { opacity: 1, duration: 0.3 }),
-  onLeaveBack: () => gsap.to(".ada3", { opacity: 0, duration: 0.3 })
-});
-gsap.to(".ada3", {
-  y: -150,
-  scale: 1.2,
-  scrollTrigger: {
-    trigger: ".trigger-ada3",
-    start: "top 20%", 
-    end: "bottom 40%", // Usa la altura real del trigger (1500px)
-    scrub: true,
-    onUpdate: self => {
-      const zigzag = Math.sin(self.progress * 15) * 40;
-      gsap.set(".ada3", { x: zigzag });
-    }
-  }
-});
-
-
-
-
-
-// ========================================
-// ALTERNATIVA: Si quieres controlar la velocidad exacta
-// ========================================
-/*
-// Misma duración en píxeles para ambas (serán igual de rápidas)
-gsap.to(".ada4", {
-  y: -150,
-  scale: 1.2,
-  scrollTrigger: {
-    trigger: ".trigger-ada",
-    start: "top 80%", 
-    end: "+=800", // 800px fijos de scroll
-    scrub: true,
-    onUpdate: self => {
-      const zigzag = Math.sin(self.progress * 8) * 40;
-      gsap.set(".ada4", { x: zigzag });
-    }
-  }
-});
-
-gsap.to(".ada2", {
-  y: -150,
-  scale: 1.2,
-  scrollTrigger: {
-    trigger: ".trigger-ada2",
-    start: "top 80%", 
-    end: "+=800", // 800px fijos de scroll (misma duración)
-    scrub: true,
-    onUpdate: self => {
-      const zigzag = Math.sin(self.progress * 8) * 40;
-      gsap.set(".ada2", { x: zigzag });
-    }
-  }
-});
-*/
 
 
 
